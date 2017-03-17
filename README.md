@@ -24,3 +24,4 @@ Same as feeder
 
 # Results
 
+If you have error messages in `logs/client.log` like that `17:30:04.770 [sys-#41%null%] ERROR o.t.i.c.IgniteClientVerticle - misses index 646 (currentIndex was 648)` then it means that some updates have been received in the wrong orders.

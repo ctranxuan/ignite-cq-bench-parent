@@ -1,0 +1,6 @@
+{
+  "simulation.name": "ignitecache",
+  "simulation.scenario.name": "toto-plays-with-ignite",
+  "simulation.duration": 660000,
+  "cache.range": "[0-64]"
+}

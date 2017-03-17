@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+		<!-- Don't forget to set system property
+        -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector
+             to make all loggers asynchronous. -->
+<Configuration>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+					pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{1.} - %msg%n" />
+		</Console>
+		<!-- Async Loggers will auto-flush in batches, so switch off immediateFlush. -->
+		<RandomAccessFile name="RandomAccessFile" fileName="../logs/simulation.log" immediateFlush="false" append="false">
+			<PatternLayout>
+				<Pattern>%m %ex%n</Pattern>
+			</PatternLayout>
+		</RandomAccessFile>
+		<RandomAccessFile name="ClientFile" fileName="../logs/client.log" immediateFlush="false" append="false">
+			<PatternLayout>
+				<Pattern>%d{HH:mm:ss.SSS} [%t] %m %ex%n</Pattern>
+			</PatternLayout>
+		</RandomAccessFile>
+
+	</Appenders>
+	<Loggers>
+		<Root level="ERROR">
+			<AppenderRef ref="Console" />
+		</Root>
+
+		<logger name="simulation" level="INFO" additivity="false" includeLocation="false">
+			<AppenderRef ref="RandomAccessFile" />
+		</logger>
+
+		<logger name="org.test.ignite" level="DEBUG" additivity="false" includeLocation="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="ClientFile" />
+		</logger>
+	</Loggers>
+</Configuration>

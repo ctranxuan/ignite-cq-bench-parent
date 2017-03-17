@@ -1,0 +1,6 @@
+{
+  "cache.range": "[0-64]",
+  "cache.feed.frequency": 1000,
+  "simulation.starting.pause": 500,
+  "simulation.duration": 600000
+}

@@ -1,12 +1,18 @@
+# Intro
+
+This is a project related to the StackOverflow question: http://stackoverflow.com/questions/42805562/can-apache-ignite-continuous-queries-miss-some-update
+
 # Compile
 
 ```mvn clean install```
 
 # Run
 
-## Feeder
+Starts the consumer first.
 
-Upload the tgz `ignite-cq-bench-feeder/target/ignite-cq-bench-feeder-1.0-SNAPSHOT-feeder.tgz` on a server
+## Consumer
+
+Upload the tgz `ignite-cq-bench-consumer/target/ignite-cq-bench-consumer-1.0-SNAPSHOT-consumer.tgz` on a server
 Untar the archive
 Update `-Xmx5G` of `bin/startup.sh` according to your env
 Udpate `conf/ignite-cq.xml` with the addresses of your distributed environment
@@ -18,9 +24,9 @@ cd bin/
 
 It stops after `simulation.duration` defined in `conf/feeder-conf.json`
 
-## Consumer
+## Feeder
 
-Same as feeder
+Same as consumer
 
 # Results
 
